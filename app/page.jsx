@@ -433,20 +433,20 @@ function PatientForm({ form, onSubmit, onUpdate }) {
         </div>
         <div className="space-y-3">
           <Field label="Nama Pesakit"><input className="input" value={form.nama} onChange={(e) => onUpdate("nama", e.target.value)} placeholder="" /></Field>
-          <Field label="No Kad Pengenalan (Optional)"><input className="input" inputMode="numeric" maxLength={14} value={form.noKadPengenalan || ""} onChange={(e) => onUpdate("noKadPengenalan", formatIC(e.target.value))} placeholder="Contoh: 900101-01-1234" /></Field>
+          <Field label="No Kad Pengenalan (Optional)"><input className="input" inputMode="numeric" maxLength={14} value={form.noKadPengenalan || ""} onChange={(e) => onUpdate("noKadPengenalan", formatIC(e.target.value))} placeholder="" /></Field>
           <div className="grid grid-cols-2 gap-3">
             <Field label="Tarikh"><input className="input" type="date" value={form.tarikh} onChange={(e) => onUpdate("tarikh", e.target.value)} /></Field>
             <Field label="Masa"><select className="input" value={form.masa} onChange={(e) => onUpdate("masa", e.target.value)}>{timeSlots.map((group) => <optgroup key={group.session} label={group.session}>{group.times.map((time) => <option key={time} value={time}>{time}</option>)}</optgroup>)}</select></Field>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <Field label="Bayaran"><select className="input" value={form.bayaran} onChange={(e) => onUpdate("bayaran", e.target.value)}><option>Tunai</option><option>FPX</option></select></Field>
-            <Field label="Pakej"><input className="input" value={form.pakej} onChange={(e) => onUpdate("pakej", e.target.value)} placeholder="Contoh: 3 Sesi" /></Field>
+            <Field label="Pakej"><input className="input" value={form.pakej} onChange={(e) => onUpdate("pakej", e.target.value)} placeholder="" /></Field>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            <Field label="Jumlah Bayaran (RM)"><input className="input" type="number" min="0" step="0.01" value={form.harga} onChange={(e) => onUpdate("harga", e.target.value)} placeholder="Contoh: 139" /></Field>
-            <Field label="Komisen %"><input className="input" type="number" min="0" max="100" step="0.01" value={form.komisen} onChange={(e) => onUpdate("komisen", e.target.value)} placeholder="Contoh: 5" /></Field>
+            <Field label="Jumlah Bayaran (RM)"><input className="input" type="number" min="0" step="0.01" value={form.harga} onChange={(e) => onUpdate("harga", e.target.value)} placeholder="" /></Field>
+            <Field label="Komisen %"><input className="input" type="number" min="0" max="100" step="0.01" value={form.komisen} onChange={(e) => onUpdate("komisen", e.target.value)} placeholder="" /></Field>
           </div>
-          <Field label="Juruterapi"><input className="input" value={form.juruterapi} onChange={(e) => onUpdate("juruterapi", e.target.value)} placeholder="Isi nama juruterapi" /></Field>
+          <Field label="Juruterapi"><input className="input" value={form.juruterapi} onChange={(e) => onUpdate("juruterapi", e.target.value)} placeholder="" /></Field>
           <div className="rounded-xl bg-cyan-50 p-4 text-sm font-semibold text-cyan-900">Komisen (RM): {currency(calculateCommission(form.harga, form.komisen))}</div>
           <button type="submit" className="w-full rounded-xl bg-gradient-to-r from-blue-600 to-emerald-500 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:brightness-95">Simpan Rekod</button>
         </div>
