@@ -432,7 +432,7 @@ function PatientForm({ form, onSubmit, onUpdate }) {
           <div><h2 className="text-lg font-bold text-slate-950">Tambah Rekod Pesakit</h2><p className="text-sm font-medium text-slate-500">Isi maklumat rawatan harian.</p></div>
         </div>
         <div className="space-y-3">
-          <Field label="Nama Pesakit"><input className="input" value={form.nama} onChange={(e) => onUpdate("nama", e.target.value)} placeholder="Contoh: Ahmad bin Ali" /></Field>
+          <Field label="Nama Pesakit"><input className="input" value={form.nama} onChange={(e) => onUpdate("nama", e.target.value)} placeholder="" /></Field>
           <Field label="No Kad Pengenalan (Optional)"><input className="input" inputMode="numeric" maxLength={14} value={form.noKadPengenalan || ""} onChange={(e) => onUpdate("noKadPengenalan", formatIC(e.target.value))} placeholder="Contoh: 900101-01-1234" /></Field>
           <div className="grid grid-cols-2 gap-3">
             <Field label="Tarikh"><input className="input" type="date" value={form.tarikh} onChange={(e) => onUpdate("tarikh", e.target.value)} /></Field>
